@@ -1282,7 +1282,6 @@ text-decoration:none;
 
    <div class="tabs-scroll">
 <button class="tab active" data-cat="all">🍽️ All Items</button>
-<button class="tab" data-cat="Thali">🍱 Thali</button>
 <button class="tab" data-cat="Veg Starter">🥗 Veg Starter</button>
 <button class="tab" data-cat="Veg Chinese & Starter">🍜 Veg Chinese & Starter</button>
 <button class="tab" data-cat="Veg Bhaji">🍲 Veg Main Course</button>
@@ -1293,6 +1292,8 @@ text-decoration:none;
 <button class="tab" data-cat="Non-Veg Bhaji">🍛 Non-Veg Main Course</button>
 <button class="tab" data-cat="Non-Veg Handi">🥘 Non-Veg Handi</button>
 <button class="tab" data-cat="Roti & Naan">🫓 Roti & Naan</button>
+<button class="tab" data-cat="Thali">🍱 Thali</button>
+
    </div>  
                 </div>
             </div>
@@ -1439,13 +1440,6 @@ text-decoration:none;
         const data = [
 
           
-{"id": 1, "cat": "Thali", "name": "Mutton Thali | मटण थाळी", "price": "Rs. 250", "desc": "Mutton Thali.", "tags": ["Non-Veg", "Thali"], "img": "img/mutton_thali.jpeg"},
-{"id": 2, "cat": "Thali", "name": "Chicken Thali | चिकन थाळी", "price": "Rs. 200", "desc": "Chicken Thali.", "tags": ["Non-Veg", "Thali"], "img": "img/chicken_thali.jpeg"},
-{"id": 3, "cat": "Thali", "name": "Macchi Thali | मच्छी थाळी", "price": "Rs. 200", "desc": "Macchi Thali.", "tags": ["Non-Veg", "Thali"], "img": "img/macchi_thali.jpeg"},
-{"id": 4, "cat": "Thali", "name": "Biryani Mutton | बिर्याणी मटण", "price": "Rs. 140", "desc": "Biryani Mutton.", "tags": ["Non-Veg", "Thali"], "img": "img/biryani_mutton.jpeg"},
-{"id": 5, "cat": "Thali", "name": "Special Veg Thali | स्पेशल व्हेज थाळी", "price": "Rs. 150", "desc": "Special Veg Thali.", "tags": ["Veg", "Thali"], "img": "img/special_veg_thali.jpeg"},
-{"id": 6, "cat": "Thali", "name": "Biryani Chicken | बिर्याणी चिकन", "price": "Rs. 120", "desc": "Biryani Chicken.", "tags": ["Non-Veg", "Thali"], "img": "img/biryani_chicken.jpeg"},
-{"id": 7, "cat": "Thali", "name": "Patil Wada Special Mutton Thali | पाटील वाडा स्पेशल मटण थाळी", "price": "Rs. 250", "desc": "Patil Wada Special Mutton Thali.", "tags": ["Non-Veg", "Thali"], "img": "img/patil_wada_special_mutton_thali.jpeg"},
 {"id": 8, "cat": "Veg Starter", "name": "Roasted Papad | रोस्टेड पापड", "price": "Rs. 20", "desc": "Roasted Papad.", "tags": ["Veg", "Veg Starter"], "img": "img/roasted_papad.jpeg"},
 {"id": 9, "cat": "Veg Starter", "name": "Fry Papad | फ्राय पापड", "price": "Rs. 20", "desc": "Fry Papad.", "tags": ["Veg", "Veg Starter"], "img": "img/fry_papad.jpeg"},
 {"id": 10, "cat": "Veg Starter", "name": "Masala Papad | मसाला पापड", "price": "Rs. 30", "desc": "Masala Papad.", "tags": ["Veg", "Veg Starter"], "img": "img/masala_papad.jpeg"},
@@ -1591,6 +1585,13 @@ text-decoration:none;
 {"id": 150, "cat": "Roti & Naan", "name": "Gobi Paratha | गोबी पराठा", "price": "Rs. 80", "desc": "Gobi Paratha.", "tags": ["Veg", "Roti & Naan"], "img": "img/gobi_paratha.jpeg"},
 {"id": 151, "cat": "Roti & Naan", "name": "Palak Paratha | पालक पराठा", "price": "Rs. 90", "desc": "Palak Paratha.", "tags": ["Veg", "Roti & Naan"], "img": "img/palak_paratha.jpeg"},
 
+{"id": 1, "cat": "Thali", "name": "Mutton Thali | मटण थाळी", "price": "Rs. 250", "desc": "Mutton Thali.", "tags": ["Non-Veg", "Thali"], "img": "img/mutton_thali.jpeg"},
+{"id": 2, "cat": "Thali", "name": "Chicken Thali | चिकन थाळी", "price": "Rs. 200", "desc": "Chicken Thali.", "tags": ["Non-Veg", "Thali"], "img": "img/chicken_thali.jpeg"},
+{"id": 3, "cat": "Thali", "name": "Macchi Thali | मच्छी थाळी", "price": "Rs. 200", "desc": "Macchi Thali.", "tags": ["Non-Veg", "Thali"], "img": "img/macchi_thali.jpeg"},
+{"id": 4, "cat": "Thali", "name": "Biryani Mutton | बिर्याणी मटण", "price": "Rs. 140", "desc": "Biryani Mutton.", "tags": ["Non-Veg", "Thali"], "img": "img/biryani_mutton.jpeg"},
+{"id": 5, "cat": "Thali", "name": "Special Veg Thali | स्पेशल व्हेज थाळी", "price": "Rs. 150", "desc": "Special Veg Thali.", "tags": ["Veg", "Thali"], "img": "img/special_veg_thali.jpeg"},
+{"id": 6, "cat": "Thali", "name": "Biryani Chicken | बिर्याणी चिकन", "price": "Rs. 120", "desc": "Biryani Chicken.", "tags": ["Non-Veg", "Thali"], "img": "img/biryani_chicken.jpeg"},
+{"id": 7, "cat": "Thali", "name": "Patil Wada Special Mutton Thali | पाटील वाडा स्पेशल मटण थाळी", "price": "Rs. 250", "desc": "Patil Wada Special Mutton Thali.", "tags": ["Non-Veg", "Thali"], "img": "img/patil_wada_special_mutton_thali.jpeg"},
           
  
     ];
