@@ -38,30 +38,18 @@
             margin: 2px;
         }
 
+        .tabs-container {
+          text-align: center;
+        }
 
+        .tab-row {
+          margin-bottom: 10px;
+        }
 
+        .tab {
+          margin: 4px;
+        }
 
-
-        
-
-.tabs-container {
-  text-align: center;
-}
-
-.tab-row {
-  margin-bottom: 10px;
-}
-
-.tab {
-  margin: 4px;
-}
-
-
-
-
-
-        
-        
         .tab.active {
             background: linear-gradient(90deg, var(--gold1), var(--gold2));
             color: #0b0b0d;
@@ -69,25 +57,21 @@
             box-shadow: 0 8px 30px rgba(212, 175, 55, 0.12);
         }
 
-        /* Hover effect for better UX */
         .tab:hover {
             border-color: rgba(255, 255, 255, 0.1);
             transform: translateY(-1px);
         }
 
-        /* Tablet styles */
         @media (min-width: 768px) {
             .tabs-scroll {
                 justify-content: flex-start;
             }
-
             .tab {
                 padding: 12px 20px;
                 font-size: 15px;
             }
         }
 
-        /* Desktop styles */
         @media (min-width: 1024px) {
             .tab {
                 padding: 12px 24px;
@@ -95,40 +79,81 @@
             }
         }
 
-        /* Mobile-specific adjustments */
         @media (max-width: 767px) {
             .tab {
                 padding: 8px 14px;
                 font-size: 13px;
             }
-
             .tabs-scroll {
                 justify-content: center;
             }
         }
 
-        /* Small mobile devices */
         @media (max-width: 480px) {
             .tab {
                 padding: 6px 12px;
                 font-size: 12px;
             }
-
             .tabs-scroll {
                 gap: 5px;
             }
         }
 
+        /* Menu Toggle Buttons (Food / Bar) */
+        .menu-toggle-wrapper {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 15px;
+            flex-wrap: wrap;
+        }
 
+        .menu-toggle-btn {
+            padding: 10px 30px;
+            border-radius: 999px;
+            font-size: 16px;
+            font-weight: 700;
+            cursor: pointer;
+            border: 2px solid rgba(212, 175, 55, 0.3);
+            background: transparent;
+            color: var(--muted);
+            transition: all 0.3s ease;
+            letter-spacing: 0.5px;
+        }
 
+        .menu-toggle-btn:hover {
+            border-color: var(--gold1);
+            transform: translateY(-2px);
+        }
 
+        .menu-toggle-btn.active {
+            background: linear-gradient(90deg, var(--gold1), var(--gold2));
+            color: #0b0b0d;
+            border-color: var(--gold1);
+            box-shadow: 0 8px 30px rgba(212, 175, 55, 0.2);
+        }
 
+        .menu-toggle-btn svg {
+            width: 20px;
+            height: 20px;
+            vertical-align: middle;
+            margin-right: 8px;
+        }
 
-
-
-
-
-
+        /* ---- NEW: Bar tabs show/hide ---- */
+        .bar-tabs {
+            display: none;
+        }
+        .bar-tabs.visible {
+            display: flex;
+        }
+        .food-tabs {
+            display: flex;
+        }
+        .food-tabs.hidden {
+            display: none;
+        }
+        /* ---- END NEW ---- */
 
         :root {
             --bg: #0b0b0d;
@@ -169,7 +194,6 @@
             overflow-x: hidden;
         }
 
-        /* Background image layer */
         body::before {
             content: "";
             position: absolute;
@@ -204,7 +228,6 @@
             gap: var(--gap);
         }
   
-        /* Cafe Header - Original Style */
         .cafe-header {
             text-align: center;
             margin-bottom: 30px;
@@ -320,7 +343,6 @@
             border: 2px solid #c62828;
         }
 
-        /* Location Link Section - Added at bottom */
         .location-link-section {
             background: rgba(255, 255, 255, 0.03);
             border-radius: 12px;
@@ -381,7 +403,6 @@
             height: 20px;
         }
 
-        /* Header and Navigation */
         .header {
             display: flex;
             flex-direction: column;
@@ -445,45 +466,6 @@
             width: 100%;
         }
 
-        /* Tabs Navigation */
-        .tabs-container {
-            position: relative;
-            margin-bottom: 10px;
-        }
-
-        .tabs-scroll {
-            display: flex;
-            gap: 8px;
-            overflow-x: auto;
-            padding: 8px 0;
-            scrollbar-width: none;
-            -ms-overflow-style: none;
-        }
-
-        .tabs-scroll::-webkit-scrollbar {
-            display: none;
-        }
-
-        .tab {
-            padding: 10px 16px;
-            border-radius: 999px;
-            background: transparent;
-            border: 1px solid rgba(255, 255, 255, 0.03);
-            font-size: 14px;
-            color: var(--muted);
-            cursor: pointer;
-            white-space: nowrap;
-            flex-shrink: 0;
-        }
-
-        .tab.active {
-            background: var(--accent);
-            color: #0b0b0d;
-            border: none;
-            box-shadow: 0 8px 30px rgba(212, 175, 55, 0.12);
-        }
-
-        /* Menu Grid */
         .menu-grid {
             display: grid;
             grid-template-columns: 1fr;
@@ -581,7 +563,6 @@
             background: transparent;
         }
 
-        /* Add to Cart Button */
         .btn-primary {
             background: linear-gradient(90deg, var(--gold1), var(--gold2));
             border: none;
@@ -608,7 +589,6 @@
             transform: translateY(0) scale(0.95);
         }
 
-        /* Button Animation Effects */
         .btn-primary.adding {
             animation: addPulse 0.6s ease;
         }
@@ -619,50 +599,19 @@
         }
 
         @keyframes addPulse {
-            0% {
-                transform: scale(1);
-                box-shadow: 0 4px 15px rgba(212, 175, 55, 0.15);
-            }
-
-            50% {
-                transform: scale(1.05);
-                box-shadow: 0 8px 25px rgba(212, 175, 55, 0.3);
-            }
-
-            100% {
-                transform: scale(1);
-                box-shadow: 0 4px 15px rgba(212, 175, 55, 0.15);
-            }
+            0% { transform: scale(1); box-shadow: 0 4px 15px rgba(212, 175, 55, 0.15); }
+            50% { transform: scale(1.05); box-shadow: 0 8px 25px rgba(212, 175, 55, 0.3); }
+            100% { transform: scale(1); box-shadow: 0 4px 15px rgba(212, 175, 55, 0.15); }
         }
 
         @keyframes successPulse {
-            0% {
-                transform: scale(1);
-                box-shadow: 0 4px 15px rgba(16, 185, 129, 0.15);
-            }
-
-            25% {
-                transform: scale(1.08);
-                box-shadow: 0 8px 30px rgba(16, 185, 129, 0.4);
-            }
-
-            50% {
-                transform: scale(0.95);
-                box-shadow: 0 6px 20px rgba(16, 185, 129, 0.3);
-            }
-
-            75% {
-                transform: scale(1.03);
-                box-shadow: 0 7px 25px rgba(16, 185, 129, 0.35);
-            }
-
-            100% {
-                transform: scale(1);
-                box-shadow: 0 4px 15px rgba(16, 185, 129, 0.15);
-            }
+            0% { transform: scale(1); box-shadow: 0 4px 15px rgba(16, 185, 129, 0.15); }
+            25% { transform: scale(1.08); box-shadow: 0 8px 30px rgba(16, 185, 129, 0.4); }
+            50% { transform: scale(0.95); box-shadow: 0 6px 20px rgba(16, 185, 129, 0.3); }
+            75% { transform: scale(1.03); box-shadow: 0 7px 25px rgba(16, 185, 129, 0.35); }
+            100% { transform: scale(1); box-shadow: 0 4px 15px rgba(16, 185, 129, 0.15); }
         }
 
-        /* Cart Styles */
         .cart-container {
             position: fixed;
             bottom: 20px;
@@ -847,7 +796,6 @@
             margin-top: 16px;
         }
 
-        /* Add Another Item Button */
         .btn-add-another {
             background: linear-gradient(90deg, rgba(212, 175, 55, 0.1), rgba(255, 204, 102, 0.1));
             border: 1px solid rgba(212, 175, 55, 0.3);
@@ -901,7 +849,6 @@
             font-size: 16px;
         }
 
-        /* Delivery Options in Cart */
         .delivery-options {
             margin: 20px 0;
             padding: 20px;
@@ -962,7 +909,6 @@
             height: 18px;
         }
 
-        /* Delivery Forms */
         .delivery-form {
             display: none;
             animation: fadeIn 0.5s ease;
@@ -973,15 +919,8 @@
         }
 
         @keyframes fadeIn {
-            from {
-                opacity: 0;
-                transform: translateY(-10px);
-            }
-
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+            from { opacity: 0; transform: translateY(-10px); }
+            to { opacity: 1; transform: translateY(0); }
         }
 
         .form-group {
@@ -1017,7 +956,6 @@
             color: rgba(255, 255, 255, 0.3);
         }
 
-        /* Customer Details Summary */
         .customer-details-summary {
             background: rgba(255, 255, 255, 0.02);
             border-radius: 8px;
@@ -1056,7 +994,6 @@
             margin-bottom: 5px;
         }
 
-        /* Footer */
         .footer {
             text-align: center;
             padding: 20px 0;
@@ -1066,7 +1003,6 @@
             margin-top: 20px;
         }
 
-        /* Gold Line */
         .gold-line {
             height: 3px;
             border-radius: 999px;
@@ -1075,84 +1011,41 @@
             margin: 8px 0 16px 0;
         }
 
-        /* Tablet and Desktop Styles */
         @media (min-width: 768px) {
-            body {
-                padding: 24px;
-            }
-
-            .container {
-                display: grid;
-                grid-template-columns: 1fr;
-                gap: 24px;
-                align-items: start;
-            }
-
-            .header {
-                grid-column: 1 / -1;
-                flex-direction: row;
-                justify-content: space-between;
-                align-items: center;
-            }
-
-            .brand {
-                flex: 1;
-            }
-
-            .search-container {
-                width: auto;
-                min-width: 300px;
-            }
-
-            .tabs-container {
-                grid-column: 1 / -1;
-            }
-
-            .menu-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-
-            .cart-actions {
-                flex-direction: row;
-            }
+            body { padding: 24px; }
+            .container { display: grid; grid-template-columns: 1fr; gap: 24px; align-items: start; }
+            .header { grid-column: 1 / -1; flex-direction: row; justify-content: space-between; align-items: center; }
+            .brand { flex: 1; }
+            .search-container { width: auto; min-width: 300px; }
+            .tabs-container { grid-column: 1 / -1; }
+            .menu-grid { grid-template-columns: repeat(2, 1fr); }
+            .cart-actions { flex-direction: row; }
         }
 
         @media (min-width: 1024px) {
-            .menu-grid {
-                grid-template-columns: repeat(3, 1fr);
-            }
+            .menu-grid { grid-template-columns: repeat(3, 1fr); }
         }
 
-        /* Print Styles */
         @media print {  
-            body {
-                background: white;
-                color: black;
-            }  
-   
-            .cart-container,   
-            .cart-modal,
-            .btn-ghost {
-                display: none;    
-            }    
+            body { background: white; color: black; }  
+            .cart-container, .cart-modal, .btn-ghost { display: none; }    
         }
     </style>
 </head>
 
 <body>
     <div class="container">  
-        <!-- Cafe Header - Original Style -->
+        <!-- Cafe Header -->
         <div class="cafe-header">
-<img src="logo1.jpeg" alt="Logo" style="width:400px; height:auto; display:block; margin:0 auto;">
+            <img src="logo1.jpeg" alt="Logo" style="width:400px; height:auto; display:block; margin:0 auto;">
             <div class="cafe-name">हॉटेल पाटील वाडा</div>
             <div class="cafe-subtitle">बार & परमिट रूम</div>
             <div class="location-info">
                 <div class="location-text"></div>
                 <div class="address"></div>
-
-                  <div class="location-text"><h2></h2></div>
-                  <div class="cafe-subtitle"></div>
-                           <div class="cafe-subtitle"></div>
+                <div class="location-text"><h2></h2></div>
+                <div class="cafe-subtitle"></div>
+                <div class="cafe-subtitle"></div>
                 <div class="mobile-numbers"><br>Mo no.+91 72762 38455</div>
             </div>
             <div class="veg-nonveg">
@@ -1160,108 +1053,27 @@
                     <span class="symbol"></span>
                     <span>VEG</span>
                 </div>
-                  <div class="nonveg">
+                <div class="nonveg">
                     <span class="symbol"></span>
                     <span>NON VEG</span>
                 </div> 
             </div>
+
+            <!-- Food / Bar Menu Toggle Buttons -->
+            <div class="menu-toggle-wrapper">
+                <button class="menu-toggle-btn active" id="foodMenuBtn" onclick="switchMenu('food')">
+                    🍽️ Food Menu
+                </button>
+                <button class="menu-toggle-btn" id="barMenuBtn" onclick="switchMenu('bar')">
+                    🥃 Bar Menu
+                </button>
+            </div>
+
         </div>
 
-<!-- Room Tariff Note -->
-<!-- <div style="
-    max-width:600px;
-    margin:15px auto 20px;
-    padding:15px;
-    text-align:center;
-    background:rgba(212,175,55,0.12);
-    border:1px solid rgba(212,175,55,0.4);
-    border-radius:12px;
-    color:#ffffff;
-    line-height:1.8;
-    font-size:16px;
-    font-weight:600;
-">
-    <div style="font-size:20px; color:#ffcc66; font-weight:700; margin-bottom:8px;">
-        🏨 रूम दर (Room Tariff)
-    </div>
+        <!-- Font Awesome -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
-    <div>🛏️ <b>एसी रूम :</b> ₹2500</div>
-    <div>🛏️ <b>नॉन एसी रूम :</b> ₹1500</div>
-    <div>⛺ <b>टेंट :</b> ₹500</div>
-    <div>🏛️ <b>हॉल :</b> प्रति माणसी ₹400</div>
-</div>
-
-
- -->
-
-          
-<!-- Font Awesome -->
-<link rel="stylesheet"
-href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-
-<!-- Social Media Buttons -->
-<div style="display:flex; justify-content:center; gap:25px; margin-top:30px; flex-wrap:wrap;">
-
-    <!-- Instagram -->
-<!-- <a href="https://www.instagram.com/appadosavagchinese?igsh=MWs5OHp5M2gxYnRhNQ==" target="_blank"
-style="
-width:70px;
-height:70px;
-background:#E1306C;
-border-radius:50%;
-display:flex;
-align-items:center;
-justify-content:center;
-color:white;
-font-size:32px;
-text-decoration:none;
-">
-    <i class="fab fa-instagram"></i>
-</a>
- -->
-    <!-- Facebook -->
-     <!-- <a href="https://www.facebook.com/share/18jMMRyHPX/" target="_blank"
-    style="
-    width:70px;
-    height:70px;
-    background:#1877F2;
-    border-radius:50%;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    color:white;
-    font-size:32px;
-    text-decoration:none;
-    ">
-        <i class="fab fa-facebook-f"></i>
-    </a> -->
- 
-    <!-- YouTube -->
-    <!-- <a href="https://youtube.com/@madanghuge40?si=2bSRtZ56FlgajvoD" target="_blank"
-    style="
-    width:70px;
-    height:70px;
-    background:#FF0000;
-    border-radius:50%;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    color:white;
-    font-size:32px;
-    text-decoration:none;
-    ">
-        <i class="fab fa-youtube"></i>
-    </a>
-
-</div> -->
-
-<!-- <p style="text-align:center; margin-top:10px; font-size:14px; color:white;">
-  Delivery free up to 3 K
-</p>  -->
-
-
-
-          
         <!-- Main Menu -->
         <main class="menu">
             <div class="menu-head">
@@ -1274,30 +1086,38 @@ text-decoration:none;
                                 stroke-linecap="round" stroke-linejoin="round"></circle>
                         </svg>
                         <!-- <input id="search" placeholder="Search dishes, ingredients..." /> -->
-                    </div> 
+                    </div>
 
-<!-- <p style="text-align:center; color:#FFD700; font-size:16px; font-weight:bold; margin:15px 0;">
-    🚚 Home Delivery / 🎉 Party Orders Available
-</p> -->
+                    <!-- ===== Tabs Container ===== -->
+                    <div class="tabs-container" id="tabsContainer">
+                        
+                        <!-- Food Tabs -->
+                        <div class="tabs-scroll food-tabs" id="foodTabs">
+                            <button class="tab active" data-cat="all">🍽️ All Items</button>
+                            <button class="tab" data-cat="Veg Starter">🥗 Veg Starter</button>
+                            <button class="tab" data-cat="Veg Chinese & Starter">🍜 Veg Chinese & Starter</button>
+                            <button class="tab" data-cat="Veg Bhaji">🍲 Veg Main Course</button>
+                            <button class="tab" data-cat="Veg Handi">🥘 Veg Handi</button>
+                            <button class="tab" data-cat="Rice">🍚 Rice</button>
+                            <button class="tab" data-cat="Thecha">🌶️ Chutney & Thecha</button>
+                            <button class="tab" data-cat="Non-Veg Starter">🍗 Non-Veg Starter</button>
+                            <button class="tab" data-cat="Non-Veg Bhaji">🍛 Non-Veg Main Course</button>
+                            <button class="tab" data-cat="Non-Veg Handi">🥘 Non-Veg Handi</button>
+                            <button class="tab" data-cat="Roti & Naan">🫓 Roti & Naan</button>
+                            <button class="tab" data-cat="Thali">🍱 Thali</button>
+                            <button class="tab" data-cat="all">🍽️ All Items</button>
+                        </div>
 
-   <div class="tabs-scroll">
-<button class="tab active" data-cat="all">🍽️ All Items</button>
-<button class="tab" data-cat="Veg Starter">🥗 Veg Starter</button>
-<button class="tab" data-cat="Veg Chinese & Starter">🍜 Veg Chinese & Starter</button>
-<button class="tab" data-cat="Veg Bhaji">🍲 Veg Main Course</button>
-<button class="tab" data-cat="Veg Handi">🥘 Veg Handi</button>
-<button class="tab" data-cat="Rice">🍚 Rice</button>
-<button class="tab" data-cat="Thecha">🌶️ Chutney & Thecha</button>
-<button class="tab" data-cat="Non-Veg Starter">🍗 Non-Veg Starter</button>
-<button class="tab" data-cat="Non-Veg Bhaji">🍛 Non-Veg Main Course</button>
-<button class="tab" data-cat="Non-Veg Handi">🥘 Non-Veg Handi</button>
-<button class="tab" data-cat="Roti & Naan">🫓 Roti & Naan</button>
-<button class="tab" data-cat="Thali">🍱 Thali</button>
-<button class="tab active" data-cat="all">🍽️ All Items</button>
-<button class="tab" data-cat="Liquor">🥃 Spirits & Liquor</button>
-<button class="tab" data-cat="Beer">🍺 Beer</button>         
+                        <!-- Bar Tabs (Liquor & Beer) -->
+                        <div class="tabs-scroll bar-tabs" id="barTabs">
+                            <button class="tab active" data-bar-cat="all">🥃 All Drinks</button>
+                            <button class="tab" data-bar-cat="Liquor">🍾 Liquor</button>
+                            <button class="tab" data-bar-cat="Beer">🍺 Beer</button>
+                        </div>
 
-   </div>  
+                    </div>
+                    <!-- ========================================= -->
+
                 </div>
             </div>
 
@@ -1306,7 +1126,7 @@ text-decoration:none;
             </section>
         </main>
 
-        <!-- Location Link Section - Added at bottom -->
+        <!-- Location Link Section -->
         <div class="location-link-section">
             <div class="location-link-header">
                 <svg class="location-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -1347,36 +1167,30 @@ text-decoration:none;
                 <button class="close-cart" id="closeCart">&times;</button>
             </div>
 
-            <!-- Delivery Options -->
             <div class="delivery-options">
                 <h4 class="options-title">
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <path
-                            d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
+                        <path d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
                     </svg>
                     Select Delivery Type
                 </h4>
 
                 <div class="delivery-option-buttons">
-                    <button class="option-btn active" id="restaurantOption"
-                        onclick="selectDeliveryOption('restaurant')">
+                    <button class="option-btn active" id="restaurantOption" onclick="selectDeliveryOption('restaurant')">
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path
-                                d="M9 12v12M15 12v12M5 12l-2 9h18l-2-9M5 12V8c0-1.105.895-2 2-2h10c1.105 0 2 .895 2 2v4" />
+                            <path d="M9 12v12M15 12v12M5 12l-2 9h18l-2-9M5 12V8c0-1.105.895-2 2-2h10c1.105 0 2 .895 2 2v4" />
                             <circle cx="12" cy="6" r="2" />
                         </svg>
                         Restaurant
                     </button>
                     <button class="option-btn" id="homeDeliveryOption" onclick="selectDeliveryOption('home')">
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path
-                                d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
+                            <path d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
                         </svg>
                         Home Delivery
                     </button>
                 </div>
 
-                <!-- Restaurant Form -->
                 <div class="delivery-form active" id="restaurantForm">
                     <div class="form-group">
                         <label class="form-label" for="tableNumber">Table Number</label>
@@ -1385,7 +1199,6 @@ text-decoration:none;
                     </div>
                 </div>
 
-                <!-- Home Delivery Form -->
                 <div class="delivery-form" id="homeDeliveryForm">
                     <div class="form-group">
                         <label class="form-label" for="customerName">Full Name</label>
@@ -1404,13 +1217,9 @@ text-decoration:none;
                 </div>
             </div>
 
-            <!-- Customer Details Summary -->
-            <div class="customer-details-summary" id="customerDetailsSummary">
-                <!-- Will be populated by JavaScript -->
-            </div>
+            <div class="customer-details-summary" id="customerDetailsSummary"></div>
 
             <div class="cart-items" id="cartItems">
-                <!-- Cart items will be inserted here -->
                 <div class="cart-empty" id="cartEmpty">Your cart is empty</div>
             </div>
 
@@ -1429,8 +1238,7 @@ text-decoration:none;
                 <button class="btn-clear" id="clearCart">Clear Cart</button>
                 <button class="btn-whatsapp" id="whatsappOrder">  
                     <svg width="20" height="20" viewBox="0 0 24 24" fill="white">
-                        <path
-                            d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893A11.821 11.821 0 0020.864 3.488" />
+                        <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893A11.821 11.821 0 0020.864 3.488" />
                     </svg>
                     Order via WhatsApp
                 </button>
@@ -1439,10 +1247,8 @@ text-decoration:none;
     </div>
 
     <script>
-        // Menu Data - FIXED VERSION
+        // Menu Data (same as before - full data)
         const data = [
-
-          
 {"id": 8, "cat": "Veg Starter", "name": "Roasted Papad | रोस्टेड पापड", "price": "Rs. 20", "desc": "Roasted Papad.", "tags": ["Veg", "Veg Starter"], "img": "img/roasted_papad.jpeg"},
 {"id": 9, "cat": "Veg Starter", "name": "Fry Papad | फ्राय पापड", "price": "Rs. 20", "desc": "Fry Papad.", "tags": ["Veg", "Veg Starter"], "img": "img/fry_papad.jpeg"},
 {"id": 10, "cat": "Veg Starter", "name": "Masala Papad | मसाला पापड", "price": "Rs. 30", "desc": "Masala Papad.", "tags": ["Veg", "Veg Starter"], "img": "img/masala_papad.jpeg"},
@@ -1587,7 +1393,6 @@ text-decoration:none;
 {"id": 149, "cat": "Roti & Naan", "name": "Paneer Paratha | पनीर पराठा", "price": "Rs. 100", "desc": "Paneer Paratha.", "tags": ["Veg", "Roti & Naan"], "img": "img/paneer_paratha.jpeg"},
 {"id": 150, "cat": "Roti & Naan", "name": "Gobi Paratha | गोबी पराठा", "price": "Rs. 80", "desc": "Gobi Paratha.", "tags": ["Veg", "Roti & Naan"], "img": "img/gobi_paratha.jpeg"},
 {"id": 151, "cat": "Roti & Naan", "name": "Palak Paratha | पालक पराठा", "price": "Rs. 90", "desc": "Palak Paratha.", "tags": ["Veg", "Roti & Naan"], "img": "img/palak_paratha.jpeg"},
-
 {"id": 1, "cat": "Thali", "name": "Mutton Thali | मटण थाळी", "price": "Rs. 250", "desc": "Mutton Thali.", "tags": ["Non-Veg", "Thali"], "img": "img/mutton_thali.jpeg"},
 {"id": 2, "cat": "Thali", "name": "Chicken Thali | चिकन थाळी", "price": "Rs. 200", "desc": "Chicken Thali.", "tags": ["Non-Veg", "Thali"], "img": "img/chicken_thali.jpeg"},
 {"id": 3, "cat": "Thali", "name": "Macchi Thali | मच्छी थाळी", "price": "Rs. 200", "desc": "Macchi Thali.", "tags": ["Non-Veg", "Thali"], "img": "img/macchi_thali.jpeg"},
@@ -1595,92 +1400,92 @@ text-decoration:none;
 {"id": 5, "cat": "Thali", "name": "Special Veg Thali | स्पेशल व्हेज थाळी", "price": "Rs. 150", "desc": "Special Veg Thali.", "tags": ["Veg", "Thali"], "img": "img/special_veg_thali.jpeg"},
 {"id": 6, "cat": "Thali", "name": "Biryani Chicken | बिर्याणी चिकन", "price": "Rs. 120", "desc": "Biryani Chicken.", "tags": ["Non-Veg", "Thali"], "img": "img/biryani_chicken.jpeg"},
 {"id": 7, "cat": "Thali", "name": "Patil Wada Special Mutton Thali | पाटील वाडा स्पेशल मटण थाळी", "price": "Rs. 250", "desc": "Patil Wada Special Mutton Thali.", "tags": ["Non-Veg", "Thali"], "img": "img/patil_wada_special_mutton_thali.jpeg"},  
-          
-
-
-{"id": 1, "cat": "Liquor", "name": "McDowell's No.1 (180ml) | मेकडॉवेल्स नं.१ (१८० मि.ली.)", "price": "Rs. 280", "desc": "McDowell's No.1 180ml.", "tags": ["Liquor"], "img": "img/mcdowells_no1_180ml.jpeg"},
-{"id": 2, "cat": "Liquor", "name": "McDowell's No.1 (90ml) | मेकडॉवेल्स नं.१ (९० मि.ली.)", "price": "Rs. 150", "desc": "McDowell's No.1 90ml.", "tags": ["Liquor"], "img": "img/mcdowells_no1_90ml.jpeg"},
-{"id": 3, "cat": "Liquor", "name": "McDowell's No.1 (375ml) | मेकडॉवेल्स नं.१ (३७५ मि.ली.)", "price": "Rs. 550", "desc": "McDowell's No.1 375ml.", "tags": ["Liquor"], "img": "img/mcdowells_no1_375ml.jpeg"},
-{"id": 4, "cat": "Liquor", "name": "McDowell's No.1 (750ml) | मेकडॉवेल्स नं.१ (७५० मि.ली.)", "price": "Rs. 1100", "desc": "McDowell's No.1 750ml.", "tags": ["Liquor"], "img": "img/mcdowells_no1_750ml.jpeg"},
-{"id": 5, "cat": "Liquor", "name": "Imperial Blue (180ml) | इम्पिरिअल ब्लू (१८० मि.ली.)", "price": "Rs. 280", "desc": "Imperial Blue 180ml.", "tags": ["Liquor"], "img": "img/imperial_blue_180ml.jpeg"},
-{"id": 6, "cat": "Liquor", "name": "Imperial Blue (90ml) | इम्पिरिअल ब्लू (९० मि.ली.)", "price": "Rs. 150", "desc": "Imperial Blue 90ml.", "tags": ["Liquor"], "img": "img/imperial_blue_90ml.jpeg"},
-{"id": 7, "cat": "Liquor", "name": "Imperial Blue (375ml) | इम्पिरिअल ब्लू (३७५ मि.ली.)", "price": "Rs. 550", "desc": "Imperial Blue 375ml.", "tags": ["Liquor"], "img": "img/imperial_blue_375ml.jpeg"},
-{"id": 8, "cat": "Liquor", "name": "Imperial Blue (750ml) | इम्पिरिअल ब्लू (७५० मि.ली.)", "price": "Rs. 1100", "desc": "Imperial Blue 750ml.", "tags": ["Liquor"], "img": "img/imperial_blue_750ml.jpeg"},
-{"id": 9, "cat": "Liquor", "name": "Royal Challenge (180ml) | रॉयल चॅलेंज (१८० मि.ली.)", "price": "Rs. 330", "desc": "Royal Challenge 180ml.", "tags": ["Liquor"], "img": "img/royal_challenge_180ml.jpeg"},
-{"id": 10, "cat": "Liquor", "name": "Royal Challenge (90ml) | रॉयल चॅलेंज (९० मि.ली.)", "price": "Rs. 180", "desc": "Royal Challenge 90ml.", "tags": ["Liquor"], "img": "img/royal_challenge_90ml.jpeg"},
-{"id": 11, "cat": "Liquor", "name": "Royal Challenge (375ml) | रॉयल चॅलेंज (३७५ मि.ली.)", "price": "Rs. 660", "desc": "Royal Challenge 375ml.", "tags": ["Liquor"], "img": "img/royal_challenge_375ml.jpeg"},
-{"id": 12, "cat": "Liquor", "name": "Royal Challenge (750ml) | रॉयल चॅलेंज (७५० मि.ली.)", "price": "Rs. 1450", "desc": "Royal Challenge 750ml.", "tags": ["Liquor"], "img": "img/royal_challenge_750ml.jpeg"},
-{"id": 13, "cat": "Liquor", "name": "Royal Stag (180ml) | रॉयल स्टॅग (१८० मि.ली.)", "price": "Rs. 330", "desc": "Royal Stag 180ml.", "tags": ["Liquor"], "img": "img/royal_stag_180ml.jpeg"},
-{"id": 14, "cat": "Liquor", "name": "Royal Stag (90ml) | रॉयल स्टॅग (९० मि.ली.)", "price": "Rs. 180", "desc": "Royal Stag 90ml.", "tags": ["Liquor"], "img": "img/royal_stag_90ml.jpeg"},
-{"id": 15, "cat": "Liquor", "name": "Royal Stag (375ml) | रॉयल स्टॅग (३७५ मि.ली.)", "price": "Rs. 660", "desc": "Royal Stag 375ml.", "tags": ["Liquor"], "img": "img/royal_stag_375ml.jpeg"},
-{"id": 16, "cat": "Liquor", "name": "Royal Stag (750ml) | रॉयल स्टॅग (७५० मि.ली.)", "price": "Rs. 1450", "desc": "Royal Stag 750ml.", "tags": ["Liquor"], "img": "img/royal_stag_750ml.jpeg"},
-{"id": 17, "cat": "Liquor", "name": "Royal Green (180ml) | रॉयल ग्रीन (१८० मि.ली.)", "price": "Rs. 360", "desc": "Royal Green 180ml.", "tags": ["Liquor"], "img": "img/royal_green_180ml.jpeg"},
-{"id": 18, "cat": "Liquor", "name": "Royal Green (90ml) | रॉयल ग्रीन (९० मि.ली.)", "price": "Rs. 180", "desc": "Royal Green 90ml.", "tags": ["Liquor"], "img": "img/royal_green_90ml.jpeg"},
-{"id": 19, "cat": "Liquor", "name": "Iconic White (180ml) | आयकॉनिक व्हाईट (१८० मि.ली.)", "price": "Rs. 300", "desc": "Iconic White 180ml.", "tags": ["Liquor"], "img": "img/iconic_white_180ml.jpeg"},
-{"id": 20, "cat": "Liquor", "name": "Iconic White (90ml) | आयकॉनिक व्हाईट (९० मि.ली.)", "price": "Rs. 150", "desc": "Iconic White 90ml.", "tags": ["Liquor"], "img": "img/iconic_white_90ml.jpeg"},
-{"id": 21, "cat": "Liquor", "name": "Romov (180ml) | रोमोव्ह (१८० मि.ली.)", "price": "Rs. 280", "desc": "Romov 180ml.", "tags": ["Liquor"], "img": "img/romov_180ml.jpeg"},
-{"id": 22, "cat": "Liquor", "name": "Romov (90ml) | रोमोव्ह (९० मि.ली.)", "price": "Rs. 140", "desc": "Romov 90ml.", "tags": ["Liquor"], "img": "img/romov_90ml.jpeg"},
-{"id": 23, "cat": "Liquor", "name": "Romov Jamun (180ml) | रोमोव्ह जांभूळ (१८० मि.ली.)", "price": "Rs. 280", "desc": "Romov Jamun 180ml.", "tags": ["Liquor"], "img": "img/romov_jamun_180ml.jpeg"},
-{"id": 24, "cat": "Liquor", "name": "Romov Jamun (90ml) | रोमोव्ह जांभूळ (९० मि.ली.)", "price": "Rs. 140", "desc": "Romov Jamun 90ml.", "tags": ["Liquor"], "img": "img/romov_jamun_90ml.jpeg"},
-{"id": 25, "cat": "Liquor", "name": "Derby Special (180ml) | डर्बी स्पेशल (१८० मि.ली.)", "price": "Rs. 200", "desc": "Derby Special 180ml.", "tags": ["Liquor"], "img": "img/derby_special_180ml.jpeg"},
-{"id": 26, "cat": "Liquor", "name": "Derby Special (90ml) | डर्बी स्पेशल (९० मि.ली.)", "price": "Rs. 100", "desc": "Derby Special 90ml.", "tags": ["Liquor"], "img": "img/derby_special_90ml.jpeg"},
-{"id": 27, "cat": "Liquor", "name": "Brown Man (180ml) | ब्राऊन मॅन (१८० मि.ली.)", "price": "Rs. 200", "desc": "Brown Man 180ml.", "tags": ["Liquor"], "img": "img/brown_man_180ml.jpeg"},
-{"id": 28, "cat": "Liquor", "name": "Brown Man (90ml) | ब्राऊन मॅन (९० मि.ली.)", "price": "Rs. 100", "desc": "Brown Man 90ml.", "tags": ["Liquor"], "img": "img/brown_man_90ml.jpeg"},
-{"id": 29, "cat": "Liquor", "name": "Glenstar Blue (180ml) | ग्लेनस्टार ब्लू (१८० मि.ली.)", "price": "Rs. 200", "desc": "Glenstar Blue 180ml.", "tags": ["Liquor"], "img": "img/glenstar_blue_180ml.jpeg"},
-{"id": 30, "cat": "Liquor", "name": "Glenstar Blue (90ml) | ग्लेनस्टार ब्लू (९० मि.ली.)", "price": "Rs. 100", "desc": "Glenstar Blue 90ml.", "tags": ["Liquor"], "img": "img/glenstar_blue_90ml.jpeg"},
-{"id": 31, "cat": "Liquor", "name": "Classic Gold (180ml) | क्लासिक गोल्ड (१८० मि.ली.)", "price": "Rs. 200", "desc": "Classic Gold 180ml.", "tags": ["Liquor"], "img": "img/classic_gold_180ml.jpeg"},
-{"id": 32, "cat": "Liquor", "name": "Classic Gold (90ml) | क्लासिक गोल्ड (९० मि.ली.)", "price": "Rs. 100", "desc": "Classic Gold 90ml.", "tags": ["Liquor"], "img": "img/classic_gold_90ml.jpeg"},
-{"id": 33, "cat": "Liquor", "name": "Dapoli Vodka (180ml) | दापोली व्होडका (१८० मि.ली.)", "price": "Rs. 200", "desc": "Dapoli Vodka 180ml.", "tags": ["Liquor"], "img": "img/dapoli_vodka_180ml.jpeg"},
-{"id": 34, "cat": "Liquor", "name": "Dapoli Vodka (90ml) | दापोली व्होडका (९० मि.ली.)", "price": "Rs. 100", "desc": "Dapoli Vodka 90ml.", "tags": ["Liquor"], "img": "img/dapoli_vodka_90ml.jpeg"},
-{"id": 35, "cat": "Liquor", "name": "Empire Jamun (180ml) | एमंपायर जांभूळ (१८० मि.ली.)", "price": "Rs. 260", "desc": "Empire Jamun 180ml.", "tags": ["Liquor"], "img": "img/empire_jamun_180ml.jpeg"},
-{"id": 36, "cat": "Liquor", "name": "Empire Jamun (90ml) | एमंपायर जांभूळ (९० मि.ली.)", "price": "Rs. 130", "desc": "Empire Jamun 90ml.", "tags": ["Liquor"], "img": "img/empire_jamun_90ml.jpeg"},
-{"id": 37, "cat": "Liquor", "name": "Mad Rum (180ml) | मॅड रम (१८० मि.ली.)", "price": "Rs. 220", "desc": "Mad Rum 180ml.", "tags": ["Liquor"], "img": "img/mad_rum_180ml.jpeg"},
-{"id": 38, "cat": "Liquor", "name": "Mad Rum (90ml) | मॅड रम (९० मि.ली.)", "price": "Rs. 110", "desc": "Mad Rum 90ml.", "tags": ["Liquor"], "img": "img/mad_rum_90ml.jpeg"},
-{"id": 39, "cat": "Liquor", "name": "Grad Master Mango (180ml) | ग्रॅड मास्टर मॅंगो (१८० मि.ली.)", "price": "Rs. 380", "desc": "Grad Master Mango 180ml.", "tags": ["Liquor"], "img": "img/grad_master_mango_180ml.jpeg"},
-{"id": 40, "cat": "Liquor", "name": "Grad Master Mango (90ml) | ग्रॅड मास्टर मॅंगो (९० मि.ली.)", "price": "Rs. 190", "desc": "Grad Master Mango 90ml.", "tags": ["Liquor"], "img": "img/grad_master_mango_90ml.jpeg"},
-{"id": 41, "cat": "Liquor", "name": "Grad Master Orange (180ml) | ग्रॅड मास्टर ऑरेंज (१८० मि.ली.)", "price": "Rs. 380", "desc": "Grad Master Orange 180ml.", "tags": ["Liquor"], "img": "img/grad_master_orange_180ml.jpeg"},
-{"id": 42, "cat": "Liquor", "name": "Grad Master Orange (90ml) | ग्रॅड मास्टर ऑरेंज (९० मि.ली.)", "price": "Rs. 190", "desc": "Grad Master Orange 90ml.", "tags": ["Liquor"], "img": "img/grad_master_orange_90ml.jpeg"},
-{"id": 43, "cat": "Liquor", "name": "Grad Master Green Apple (180ml) | ग्रॅड मास्टर ग्रीन ॲपल (१८० मि.ली.)", "price": "Rs. 380", "desc": "Grad Master Green Apple 180ml.", "tags": ["Liquor"], "img": "img/grad_master_green_apple_180ml.jpeg"},
-{"id": 44, "cat": "Liquor", "name": "Grad Master Green Apple (90ml) | ग्रॅड मास्टर ग्रीन ॲपल (९० मि.ली.)", "price": "Rs. 190", "desc": "Grad Master Green Apple 90ml.", "tags": ["Liquor"], "img": "img/grad_master_green_apple_90ml.jpeg"},
-{"id": 45, "cat": "Liquor", "name": "Grad Master Melon (180ml) | ग्रॅड मास्टर मेलन (१८० मि.ली.)", "price": "Rs. 380", "desc": "Grad Master Melon 180ml.", "tags": ["Liquor"], "img": "img/grad_master_melon_180ml.jpeg"},
-{"id": 46, "cat": "Liquor", "name": "Grad Master Melon (90ml) | ग्रॅड मास्टर मेलन (९० मि.ली.)", "price": "Rs. 190", "desc": "Grad Master Melon 90ml.", "tags": ["Liquor"], "img": "img/grad_master_melon_90ml.jpeg"},
-{"id": 47, "cat": "Liquor", "name": "Grad Master Cranberry (180ml) | ग्रॅड मास्टर क्रेनबेरी (१८० मि.ली.)", "price": "Rs. 380", "desc": "Grad Master Cranberry 180ml.", "tags": ["Liquor"], "img": "img/grad_master_cranberry_180ml.jpeg"},
-{"id": 48, "cat": "Liquor", "name": "Grad Master Cranberry (90ml) | ग्रॅड मास्टर क्रेनबेरी (९० मि.ली.)", "price": "Rs. 190", "desc": "Grad Master Cranberry 90ml.", "tags": ["Liquor"], "img": "img/grad_master_cranberry_90ml.jpeg"},
-{"id": 49, "cat": "Liquor", "name": "Blenders Pride (180ml) | ब्लेंडर्स प्राइड (१८० मि.ली.)", "price": "Rs. 550", "desc": "Blenders Pride 180ml.", "tags": ["Liquor"], "img": "img/blenders_pride_180ml.jpeg"},
-{"id": 50, "cat": "Liquor", "name": "Blenders Pride (90ml) | ब्लेंडर्स प्राइड (९० मि.ली.)", "price": "Rs. 280", "desc": "Blenders Pride 90ml.", "tags": ["Liquor"], "img": "img/blenders_pride_90ml.jpeg"},
-{"id": 51, "cat": "Liquor", "name": "OAK&GLOW (180ml) | ओक अँड ग्लो (१८० मि.ली.)", "price": "Rs. 450", "desc": "OAK&GLOW 180ml.", "tags": ["Liquor"], "img": "img/oak_and_glow_180ml.jpeg"},
-{"id": 52, "cat": "Liquor", "name": "OAK&GLOW (90ml) | ओक अँड ग्लो (९० मि.ली.)", "price": "Rs. 230", "desc": "OAK&GLOW 90ml.", "tags": ["Liquor"], "img": "img/oak_and_glow_90ml.jpeg"},
-{"id": 53, "cat": "Liquor", "name": "Red Label (180ml) | रेड लेबल (१८० मि.ली.)", "price": "Rs. 850", "desc": "Red Label 180ml.", "tags": ["Liquor"], "img": "img/red_label_180ml.jpeg"},
-{"id": 54, "cat": "Liquor", "name": "Signature (180ml) | सिग्नेचर (१८० मि.ली.)", "price": "Rs. 500", "desc": "Signature 180ml.", "tags": ["Liquor"], "img": "img/signature_180ml.jpeg"},
-{"id": 55, "cat": "Liquor", "name": "Signature (90ml) | सिग्नेचर (९० मि.ली.)", "price": "Rs. 250", "desc": "Signature 90ml.", "tags": ["Liquor"], "img": "img/signature_90ml.jpeg"},
-{"id": 56, "cat": "Liquor", "name": "Black Dog (180ml) | ब्लैक डॉग (१८० मि.ली.)", "price": "Rs. 850", "desc": "Black Dog 180ml.", "tags": ["Liquor"], "img": "img/black_dog_180ml.jpeg"},
-{"id": 57, "cat": "Liquor", "name": "VAT 69 (180ml) | व्हॅट ६९ (१८० मि.ली.)", "price": "Rs. 850", "desc": "VAT 69 180ml.", "tags": ["Liquor"], "img": "img/vat_69_180ml.jpeg"},
-{"id": 58, "cat": "Liquor", "name": "Ballantine's (180ml) | बॅलेंटाइन्स (१८० मि.ली.)", "price": "Rs. 850", "desc": "Ballantine's 180ml.", "tags": ["Liquor"], "img": "img/ballantines_180ml.jpeg"},
-{"id": 59, "cat": "Liquor", "name": "Black & White (180ml) | ब्लैक अँड व्हाईट (१८० मि.ली.)", "price": "Rs. 850", "desc": "Black & White 180ml.", "tags": ["Liquor"], "img": "img/black_and_white_180ml.jpeg"},
-{"id": 60, "cat": "Liquor", "name": "Oaksmith Silver (180ml) | ओकस्मिथ सिल्व्हर (१८० मि.ली.)", "price": "Rs. 450", "desc": "Oaksmith Silver 180ml.", "tags": ["Liquor"], "img": "img/oaksmith_silver_180ml.jpeg"},
-{"id": 61, "cat": "Liquor", "name": "100 Pipers (180ml) | १०० पायपर्स (१८० मि.ली.)", "price": "Rs. 850", "desc": "100 Pipers 180ml.", "tags": ["Liquor"], "img": "img/100_pipers_180ml.jpeg"},
-{"id": 62, "cat": "Liquor", "name": "Simran UP (180ml) | सिमरन यूपी (१८० मि.ली.)", "price": "Rs. 550", "desc": "Simran UP 180ml.", "tags": ["Liquor"], "img": "img/simran_up_180ml.jpeg"},
-{"id": 63, "cat": "Liquor", "name": "Simran UP Jamun (180ml) | सिमरन यूपी जांभूळ (१८० मि.ली.)", "price": "Rs. 550", "desc": "Simran UP Jamun 180ml.", "tags": ["Liquor"], "img": "img/simran_up_jamun_180ml.jpeg"},
-{"id": 64, "cat": "Liquor", "name": "Magic Moments (180ml) | मॅजिक मोमेंट्स (१८० मि.ली.)", "price": "Rs. 360", "desc": "Magic Moments 180ml.", "tags": ["Liquor"], "img": "img/magic_moments_180ml.jpeg"},
-{"id": 65, "cat": "Liquor", "name": "Magic Moments (90ml) | मॅजिक मोमेंट्स (९० मि.ली.)", "price": "Rs. 180", "desc": "Magic Moments 90ml.", "tags": ["Liquor"], "img": "img/magic_moments_90ml.jpeg"},
-{"id": 66, "cat": "Beer", "name": "Tuborg (650ml) | टूबॉर्ग (६५० मि.ली.)", "price": "Rs. 270", "desc": "Tuborg 650ml.", "tags": ["Beer"], "img": "img/tuborg_650ml.jpeg"},
-{"id": 67, "cat": "Beer", "name": "Tuborg (500ml) | टूबॉर्ग (५०० मि.ली.)", "price": "Rs. 220", "desc": "Tuborg 500ml.", "tags": ["Beer"], "img": "img/tuborg_500ml.jpeg"},
-{"id": 68, "cat": "Beer", "name": "Budweiser Magnum (650ml) | बडवायझर मॅग्नम (६५० मि.ली.)", "price": "Rs. 320", "desc": "Budweiser Magnum 650ml.", "tags": ["Beer"], "img": "img/budweiser_magnum_650ml.jpeg"},
-{"id": 69, "cat": "Beer", "name": "Budweiser Mind (650ml) | बडवायझर माइंड (६५० मि.ली.)", "price": "Rs. 300", "desc": "Budweiser Mind 650ml.", "tags": ["Beer"], "img": "img/budweiser_mind_650ml.jpeg"},
-{"id": 70, "cat": "Beer", "name": "Carlsberg (650ml) | कार्लसबर्ग (६५० मि.ली.)", "price": "Rs. 320", "desc": "Carlsberg 650ml.", "tags": ["Beer"], "img": "img/carlsberg_650ml.jpeg"},
-{"id": 71, "cat": "Beer", "name": "Kingfisher (650ml) | किंगफिशर (६५० मि.ली.)", "price": "Rs. 270", "desc": "Kingfisher 650ml.", "tags": ["Beer"], "img": "img/kingfisher_650ml.jpeg"},
-{"id": 72, "cat": "Beer", "name": "Canon (650ml) | कॅनन (६५० मि.ली.)", "price": "Rs. 220", "desc": "Canon 650ml.", "tags": ["Beer"], "img": "img/canon_650ml.jpeg"},
-
-
 
 
 
               
-    ];
+{"id": 153, "cat": "Liquor", "name": "McDowell's No.1 (180ml) | मेकडॉवेल्स नं.१ (१८० मि.ली.)", "price": "Rs. 280", "desc": "McDowell's No.1 180ml.", "tags": ["Liquor"], "img": "img/mcdowells_no1_180ml.jpeg"},
+{"id": 154, "cat": "Liquor", "name": "McDowell's No.1 (90ml) | मेकडॉवेल्स नं.१ (९० मि.ली.)", "price": "Rs. 150", "desc": "McDowell's No.1 90ml.", "tags": ["Liquor"], "img": "img/mcdowells_no1_90ml.jpeg"},
+{"id": 155, "cat": "Liquor", "name": "McDowell's No.1 (375ml) | मेकडॉवेल्स नं.१ (३७५ मि.ली.)", "price": "Rs. 550", "desc": "McDowell's No.1 375ml.", "tags": ["Liquor"], "img": "img/mcdowells_no1_375ml.jpeg"},
+{"id": 156, "cat": "Liquor", "name": "McDowell's No.1 (750ml) | मेकडॉवेल्स नं.१ (७५० मि.ली.)", "price": "Rs. 1100", "desc": "McDowell's No.1 750ml.", "tags": ["Liquor"], "img": "img/mcdowells_no1_750ml.jpeg"},
+{"id": 157, "cat": "Liquor", "name": "Imperial Blue (180ml) | इम्पिरिअल ब्लू (१८० मि.ली.)", "price": "Rs. 280", "desc": "Imperial Blue 180ml.", "tags": ["Liquor"], "img": "img/imperial_blue_180ml.jpeg"},
+{"id": 158, "cat": "Liquor", "name": "Imperial Blue (90ml) | इम्पिरिअल ब्लू (९० मि.ली.)", "price": "Rs. 150", "desc": "Imperial Blue 90ml.", "tags": ["Liquor"], "img": "img/imperial_blue_90ml.jpeg"},
+{"id": 159, "cat": "Liquor", "name": "Imperial Blue (375ml) | इम्पिरिअल ब्लू (३७५ मि.ली.)", "price": "Rs. 550", "desc": "Imperial Blue 375ml.", "tags": ["Liquor"], "img": "img/imperial_blue_375ml.jpeg"},
+{"id": 160, "cat": "Liquor", "name": "Imperial Blue (750ml) | इम्पिरिअल ब्लू (७५० मि.ली.)", "price": "Rs. 1100", "desc": "Imperial Blue 750ml.", "tags": ["Liquor"], "img": "img/imperial_blue_750ml.jpeg"},
+{"id": 161, "cat": "Liquor", "name": "Royal Challenge (180ml) | रॉयल चॅलेंज (१८० मि.ली.)", "price": "Rs. 330", "desc": "Royal Challenge 180ml.", "tags": ["Liquor"], "img": "img/royal_challenge_180ml.jpeg"},
+{"id": 162, "cat": "Liquor", "name": "Royal Challenge (90ml) | रॉयल चॅलेंज (९० मि.ली.)", "price": "Rs. 180", "desc": "Royal Challenge 90ml.", "tags": ["Liquor"], "img": "img/royal_challenge_90ml.jpeg"},
+{"id": 163, "cat": "Liquor", "name": "Royal Challenge (375ml) | रॉयल चॅलेंज (३७५ मि.ली.)", "price": "Rs. 660", "desc": "Royal Challenge 375ml.", "tags": ["Liquor"], "img": "img/royal_challenge_375ml.jpeg"},
+{"id": 164, "cat": "Liquor", "name": "Royal Challenge (750ml) | रॉयल चॅलेंज (७५० मि.ली.)", "price": "Rs. 1450", "desc": "Royal Challenge 750ml.", "tags": ["Liquor"], "img": "img/royal_challenge_750ml.jpeg"},
+{"id": 165, "cat": "Liquor", "name": "Royal Stag (180ml) | रॉयल स्टॅग (१८० मि.ली.)", "price": "Rs. 330", "desc": "Royal Stag 180ml.", "tags": ["Liquor"], "img": "img/royal_stag_180ml.jpeg"},
+{"id": 166, "cat": "Liquor", "name": "Royal Stag (90ml) | रॉयल स्टॅग (९० मि.ली.)", "price": "Rs. 180", "desc": "Royal Stag 90ml.", "tags": ["Liquor"], "img": "img/royal_stag_90ml.jpeg"},
+{"id": 167, "cat": "Liquor", "name": "Royal Stag (375ml) | रॉयल स्टॅग (३७५ मि.ली.)", "price": "Rs. 660", "desc": "Royal Stag 375ml.", "tags": ["Liquor"], "img": "img/royal_stag_375ml.jpeg"},
+{"id": 168, "cat": "Liquor", "name": "Royal Stag (750ml) | रॉयल स्टॅग (७५० मि.ली.)", "price": "Rs. 1450", "desc": "Royal Stag 750ml.", "tags": ["Liquor"], "img": "img/royal_stag_750ml.jpeg"},
+{"id": 169, "cat": "Liquor", "name": "Royal Green (180ml) | रॉयल ग्रीन (१८० मि.ली.)", "price": "Rs. 360", "desc": "Royal Green 180ml.", "tags": ["Liquor"], "img": "img/royal_green_180ml.jpeg"},
+{"id": 170, "cat": "Liquor", "name": "Royal Green (90ml) | रॉयल ग्रीन (९० मि.ली.)", "price": "Rs. 180", "desc": "Royal Green 90ml.", "tags": ["Liquor"], "img": "img/royal_green_90ml.jpeg"},
+{"id": 171, "cat": "Liquor", "name": "Iconic White (180ml) | आयकॉनिक व्हाईट (१८० मि.ली.)", "price": "Rs. 300", "desc": "Iconic White 180ml.", "tags": ["Liquor"], "img": "img/iconic_white_180ml.jpeg"},
+{"id": 172, "cat": "Liquor", "name": "Iconic White (90ml) | आयकॉनिक व्हाईट (९० मि.ली.)", "price": "Rs. 150", "desc": "Iconic White 90ml.", "tags": ["Liquor"], "img": "img/iconic_white_90ml.jpeg"},
+{"id": 173, "cat": "Liquor", "name": "Romov (180ml) | रोमोव्ह (१८० मि.ली.)", "price": "Rs. 280", "desc": "Romov 180ml.", "tags": ["Liquor"], "img": "img/romov_180ml.jpeg"},
+{"id": 174, "cat": "Liquor", "name": "Romov (90ml) | रोमोव्ह (९० मि.ली.)", "price": "Rs. 140", "desc": "Romov 90ml.", "tags": ["Liquor"], "img": "img/romov_90ml.jpeg"},
+{"id": 175, "cat": "Liquor", "name": "Romov Jamun (180ml) | रोमोव्ह जांभूळ (१८० मि.ली.)", "price": "Rs. 280", "desc": "Romov Jamun 180ml.", "tags": ["Liquor"], "img": "img/romov_jamun_180ml.jpeg"},
+{"id": 176, "cat": "Liquor", "name": "Romov Jamun (90ml) | रोमोव्ह जांभूळ (९० मि.ली.)", "price": "Rs. 140", "desc": "Romov Jamun 90ml.", "tags": ["Liquor"], "img": "img/romov_jamun_90ml.jpeg"},
+{"id": 177, "cat": "Liquor", "name": "Derby Special (180ml) | डर्बी स्पेशल (१८० मि.ली.)", "price": "Rs. 200", "desc": "Derby Special 180ml.", "tags": ["Liquor"], "img": "img/derby_special_180ml.jpeg"},
+{"id": 178, "cat": "Liquor", "name": "Derby Special (90ml) | डर्बी स्पेशल (९० मि.ली.)", "price": "Rs. 100", "desc": "Derby Special 90ml.", "tags": ["Liquor"], "img": "img/derby_special_90ml.jpeg"},
+{"id": 179, "cat": "Liquor", "name": "Brown Man (180ml) | ब्राऊन मॅन (१८० मि.ली.)", "price": "Rs. 200", "desc": "Brown Man 180ml.", "tags": ["Liquor"], "img": "img/brown_man_180ml.jpeg"},
+{"id": 180, "cat": "Liquor", "name": "Brown Man (90ml) | ब्राऊन मॅन (९० मि.ली.)", "price": "Rs. 100", "desc": "Brown Man 90ml.", "tags": ["Liquor"], "img": "img/brown_man_90ml.jpeg"},
+{"id": 181, "cat": "Liquor", "name": "Glenstar Blue (180ml) | ग्लेनस्टार ब्लू (१८० मि.ली.)", "price": "Rs. 200", "desc": "Glenstar Blue 180ml.", "tags": ["Liquor"], "img": "img/glenstar_blue_180ml.jpeg"},
+{"id": 182, "cat": "Liquor", "name": "Glenstar Blue (90ml) | ग्लेनस्टार ब्लू (९० मि.ली.)", "price": "Rs. 100", "desc": "Glenstar Blue 90ml.", "tags": ["Liquor"], "img": "img/glenstar_blue_90ml.jpeg"},
+{"id": 183, "cat": "Liquor", "name": "Classic Gold (180ml) | क्लासिक गोल्ड (१८० मि.ली.)", "price": "Rs. 200", "desc": "Classic Gold 180ml.", "tags": ["Liquor"], "img": "img/classic_gold_180ml.jpeg"},
+{"id": 184, "cat": "Liquor", "name": "Classic Gold (90ml) | क्लासिक गोल्ड (९० मि.ली.)", "price": "Rs. 100", "desc": "Classic Gold 90ml.", "tags": ["Liquor"], "img": "img/classic_gold_90ml.jpeg"},
+{"id": 185, "cat": "Liquor", "name": "Dapoli Vodka (180ml) | दापोली व्होडका (१८० मि.ली.)", "price": "Rs. 200", "desc": "Dapoli Vodka 180ml.", "tags": ["Liquor"], "img": "img/dapoli_vodka_180ml.jpeg"},
+{"id": 186, "cat": "Liquor", "name": "Dapoli Vodka (90ml) | दापोली व्होडका (९० मि.ली.)", "price": "Rs. 100", "desc": "Dapoli Vodka 90ml.", "tags": ["Liquor"], "img": "img/dapoli_vodka_90ml.jpeg"},
+{"id": 187, "cat": "Liquor", "name": "Empire Jamun (180ml) | एमंपायर जांभूळ (१८० मि.ली.)", "price": "Rs. 260", "desc": "Empire Jamun 180ml.", "tags": ["Liquor"], "img": "img/empire_jamun_180ml.jpeg"},
+{"id": 188, "cat": "Liquor", "name": "Empire Jamun (90ml) | एमंपायर जांभूळ (९० मि.ली.)", "price": "Rs. 130", "desc": "Empire Jamun 90ml.", "tags": ["Liquor"], "img": "img/empire_jamun_90ml.jpeg"},
+{"id": 189, "cat": "Liquor", "name": "Mad Rum (180ml) | मॅड रम (१८० मि.ली.)", "price": "Rs. 220", "desc": "Mad Rum 180ml.", "tags": ["Liquor"], "img": "img/mad_rum_180ml.jpeg"},
+{"id": 190, "cat": "Liquor", "name": "Mad Rum (90ml) | मॅड रम (९० मि.ली.)", "price": "Rs. 110", "desc": "Mad Rum 90ml.", "tags": ["Liquor"], "img": "img/mad_rum_90ml.jpeg"},
+{"id": 191, "cat": "Liquor", "name": "Grad Master Mango (180ml) | ग्रॅड मास्टर मॅंगो (१८० मि.ली.)", "price": "Rs. 380", "desc": "Grad Master Mango 180ml.", "tags": ["Liquor"], "img": "img/grad_master_mango_180ml.jpeg"},
+{"id": 192, "cat": "Liquor", "name": "Grad Master Mango (90ml) | ग्रॅड मास्टर मॅंगो (९० मि.ली.)", "price": "Rs. 190", "desc": "Grad Master Mango 90ml.", "tags": ["Liquor"], "img": "img/grad_master_mango_90ml.jpeg"},
+{"id": 193, "cat": "Liquor", "name": "Grad Master Orange (180ml) | ग्रॅड मास्टर ऑरेंज (१८० मि.ली.)", "price": "Rs. 380", "desc": "Grad Master Orange 180ml.", "tags": ["Liquor"], "img": "img/grad_master_orange_180ml.jpeg"},
+{"id": 194, "cat": "Liquor", "name": "Grad Master Orange (90ml) | ग्रॅड मास्टर ऑरेंज (९० मि.ली.)", "price": "Rs. 190", "desc": "Grad Master Orange 90ml.", "tags": ["Liquor"], "img": "img/grad_master_orange_90ml.jpeg"},
+{"id": 195, "cat": "Liquor", "name": "Grad Master Green Apple (180ml) | ग्रॅड मास्टर ग्रीन ॲपल (१८० मि.ली.)", "price": "Rs. 380", "desc": "Grad Master Green Apple 180ml.", "tags": ["Liquor"], "img": "img/grad_master_green_apple_180ml.jpeg"},
+{"id": 196, "cat": "Liquor", "name": "Grad Master Green Apple (90ml) | ग्रॅड मास्टर ग्रीन ॲपल (९० मि.ली.)", "price": "Rs. 190", "desc": "Grad Master Green Apple 90ml.", "tags": ["Liquor"], "img": "img/grad_master_green_apple_90ml.jpeg"},
+{"id": 197, "cat": "Liquor", "name": "Grad Master Melon (180ml) | ग्रॅड मास्टर मेलन (१८० मि.ली.)", "price": "Rs. 380", "desc": "Grad Master Melon 180ml.", "tags": ["Liquor"], "img": "img/grad_master_melon_180ml.jpeg"},
+{"id": 198, "cat": "Liquor", "name": "Grad Master Melon (90ml) | ग्रॅड मास्टर मेलन (९० मि.ली.)", "price": "Rs. 190", "desc": "Grad Master Melon 90ml.", "tags": ["Liquor"], "img": "img/grad_master_melon_90ml.jpeg"},
+{"id": 199, "cat": "Liquor", "name": "Grad Master Cranberry (180ml) | ग्रॅड मास्टर क्रेनबेरी (१८० मि.ली.)", "price": "Rs. 380", "desc": "Grad Master Cranberry 180ml.", "tags": ["Liquor"], "img": "img/grad_master_cranberry_180ml.jpeg"},
+{"id": 200, "cat": "Liquor", "name": "Grad Master Cranberry (90ml) | ग्रॅड मास्टर क्रेनबेरी (९० मि.ली.)", "price": "Rs. 190", "desc": "Grad Master Cranberry 90ml.", "tags": ["Liquor"], "img": "img/grad_master_cranberry_90ml.jpeg"},
+{"id": 201, "cat": "Liquor", "name": "Blenders Pride (180ml) | ब्लेंडर्स प्राइड (१८० मि.ली.)", "price": "Rs. 550", "desc": "Blenders Pride 180ml.", "tags": ["Liquor"], "img": "img/blenders_pride_180ml.jpeg"},
+{"id": 202, "cat": "Liquor", "name": "Blenders Pride (90ml) | ब्लेंडर्स प्राइड (९० मि.ली.)", "price": "Rs. 280", "desc": "Blenders Pride 90ml.", "tags": ["Liquor"], "img": "img/blenders_pride_90ml.jpeg"},
+{"id": 203, "cat": "Liquor", "name": "OAK&GLOW (180ml) | ओक अँड ग्लो (१८० मि.ली.)", "price": "Rs. 450", "desc": "OAK&GLOW 180ml.", "tags": ["Liquor"], "img": "img/oak_and_glow_180ml.jpeg"},
+{"id": 204, "cat": "Liquor", "name": "OAK&GLOW (90ml) | ओक अँड ग्लो (९० मि.ली.)", "price": "Rs. 230", "desc": "OAK&GLOW 90ml.", "tags": ["Liquor"], "img": "img/oak_and_glow_90ml.jpeg"},
+{"id": 205, "cat": "Liquor", "name": "Red Label (180ml) | रेड लेबल (१८० मि.ली.)", "price": "Rs. 850", "desc": "Red Label 180ml.", "tags": ["Liquor"], "img": "img/red_label_180ml.jpeg"},
+{"id": 206, "cat": "Liquor", "name": "Signature (180ml) | सिग्नेचर (१८० मि.ली.)", "price": "Rs. 500", "desc": "Signature 180ml.", "tags": ["Liquor"], "img": "img/signature_180ml.jpeg"},
+{"id": 207, "cat": "Liquor", "name": "Signature (90ml) | सिग्नेचर (९० मि.ली.)", "price": "Rs. 250", "desc": "Signature 90ml.", "tags": ["Liquor"], "img": "img/signature_90ml.jpeg"},
+{"id": 208, "cat": "Liquor", "name": "Black Dog (180ml) | ब्लैक डॉग (१८० मि.ली.)", "price": "Rs. 850", "desc": "Black Dog 180ml.", "tags": ["Liquor"], "img": "img/black_dog_180ml.jpeg"},
+{"id": 209, "cat": "Liquor", "name": "VAT 69 (180ml) | व्हॅट ६९ (१८० मि.ली.)", "price": "Rs. 850", "desc": "VAT 69 180ml.", "tags": ["Liquor"], "img": "img/vat_69_180ml.jpeg"},
+{"id": 210, "cat": "Liquor", "name": "Ballantine's (180ml) | बॅलेंटाइन्स (१८० मि.ली.)", "price": "Rs. 850", "desc": "Ballantine's 180ml.", "tags": ["Liquor"], "img": "img/ballantines_180ml.jpeg"},
+{"id": 211, "cat": "Liquor", "name": "Black & White (180ml) | ब्लैक अँड व्हाईट (१८० मि.ली.)", "price": "Rs. 850", "desc": "Black & White 180ml.", "tags": ["Liquor"], "img": "img/black_and_white_180ml.jpeg"},
+{"id": 212, "cat": "Liquor", "name": "Oaksmith Silver (180ml) | ओकस्मिथ सिल्व्हर (१८० मि.ली.)", "price": "Rs. 450", "desc": "Oaksmith Silver 180ml.", "tags": ["Liquor"], "img": "img/oaksmith_silver_180ml.jpeg"},
+{"id": 213, "cat": "Liquor", "name": "100 Pipers (180ml) | १०० पायपर्स (१८० मि.ली.)", "price": "Rs. 850", "desc": "100 Pipers 180ml.", "tags": ["Liquor"], "img": "img/100_pipers_180ml.jpeg"},
+{"id": 214, "cat": "Liquor", "name": "Simran UP (180ml) | सिमरन यूपी (१८० मि.ली.)", "price": "Rs. 550", "desc": "Simran UP 180ml.", "tags": ["Liquor"], "img": "img/simran_up_180ml.jpeg"},
+{"id": 215, "cat": "Liquor", "name": "Simran UP Jamun (180ml) | सिमरन यूपी जांभूळ (१८० मि.ली.)", "price": "Rs. 550", "desc": "Simran UP Jamun 180ml.", "tags": ["Liquor"], "img": "img/simran_up_jamun_180ml.jpeg"},
+{"id": 216, "cat": "Liquor", "name": "Magic Moments (180ml) | मॅजिक मोमेंट्स (१८० मि.ली.)", "price": "Rs. 360", "desc": "Magic Moments 180ml.", "tags": ["Liquor"], "img": "img/magic_moments_180ml.jpeg"},
+{"id": 217, "cat": "Liquor", "name": "Magic Moments (90ml) | मॅजिक मोमेंट्स (९० मि.ली.)", "price": "Rs. 180", "desc": "Magic Moments 90ml.", "tags": ["Liquor"], "img": "img/magic_moments_90ml.jpeg"},
+{"id": 218, "cat": "Beer", "name": "Tuborg (650ml) | टूबॉर्ग (६५० मि.ली.)", "price": "Rs. 270", "desc": "Tuborg 650ml.", "tags": ["Beer"], "img": "img/tuborg_650ml.jpeg"},
+{"id": 219, "cat": "Beer", "name": "Tuborg (500ml) | टूबॉर्ग (५०० मि.ली.)", "price": "Rs. 220", "desc": "Tuborg 500ml.", "tags": ["Beer"], "img": "img/tuborg_500ml.jpeg"},
+{"id": 220, "cat": "Beer", "name": "Budweiser Magnum (650ml) | बडवायझर मॅग्नम (६५० मि.ली.)", "price": "Rs. 320", "desc": "Budweiser Magnum 650ml.", "tags": ["Beer"], "img": "img/budweiser_magnum_650ml.jpeg"},
+{"id": 221, "cat": "Beer", "name": "Budweiser Mind (650ml) | बडवायझर माइंड (६५० मि.ली.)", "price": "Rs. 300", "desc": "Budweiser Mind 650ml.", "tags": ["Beer"], "img": "img/budweiser_mind_650ml.jpeg"},
+{"id": 222, "cat": "Beer", "name": "Carlsberg (650ml) | कार्लसबर्ग (६५० मि.ली.)", "price": "Rs. 320", "desc": "Carlsberg 650ml.", "tags": ["Beer"], "img": "img/carlsberg_650ml.jpeg"},
+{"id": 223, "cat": "Beer", "name": "Kingfisher (650ml) | किंगफिशर (६५० मि.ली.)", "price": "Rs. 270", "desc": "Kingfisher 650ml.", "tags": ["Beer"], "img": "img/kingfisher_650ml.jpeg"},
+{"id": 224, "cat": "Beer", "name": "Canon (650ml) | कॅनन (६५० मि.ली.)", "price": "Rs. 220", "desc": "Canon 650ml.", "tags": ["Beer"], "img": "img/canon_650ml.jpeg"},
+        
+        ];
         
         // Cart functionality    
         let cart = [];
-        let deliveryType = 'restaurant'; // Default to restaurant
+        let deliveryType = 'restaurant';
+        let currentMenuType = 'food'; // 'food' or 'bar'
+        let currentCategory = 'all';
+        let currentBarCategory = 'all';
+
         const cartButton = document.getElementById('cartButton');
         const cartModal = document.getElementById('cartModal');
         const closeCart = document.getElementById('closeCart');
@@ -1692,79 +1497,67 @@ text-decoration:none;
         const whatsappOrder = document.getElementById('whatsappOrder');
         const addAnotherItem = document.getElementById('addAnotherItem');
         const customerDetailsSummary = document.getElementById('customerDetailsSummary');
+        const foodTabs = document.getElementById('foodTabs');
+        const barTabs = document.getElementById('barTabs');
 
-        // Helper function to extract numeric price from price string (e.g., "Rs. 120/-" -> 120)
         function extractPrice(priceStr) {
             if (!priceStr) return 0;
-            // Match first number in the string
             const match = priceStr.match(/\d+/);
-            if (match) {
-                return parseInt(match[0], 10);
-            }
+            if (match) return parseInt(match[0], 10);
             return 0;
         }
 
-        // Delivery option selection
         function selectDeliveryOption(type) {
             deliveryType = type;
-
-            // Update button states
             document.getElementById('restaurantOption').classList.toggle('active', type === 'restaurant');
             document.getElementById('homeDeliveryOption').classList.toggle('active', type === 'home');
-
-            // Show/hide forms
             document.getElementById('restaurantForm').classList.toggle('active', type === 'restaurant');
             document.getElementById('homeDeliveryForm').classList.toggle('active', type === 'home');
-
-            // Update details summary
             updateCustomerDetailsSummary();
         }
 
-        // Update customer details summary
         function updateCustomerDetailsSummary() {  
             let summaryHTML = '';
             let showSummary = false;
 
             if (deliveryType === 'restaurant') {
                 const tableNumber = document.getElementById('tableNumber').value.trim();
-
                 if (tableNumber) {
                     showSummary = true;
                     summaryHTML = `
-            <div class="summary-title">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <path d="M9 12v12M15 12v12M5 12l-2 9h18l-2-9M5 12V8c0-1.105.895-2 2-2h10c1.105 0 2 .895 2 2v4"/>
-                <circle cx="12" cy="6" r="2"/>
-              </svg>
-              Restaurant Order
-            </div>
-            <div class="summary-details">
-              <div><strong>Type:</strong> Dine-in</div>
-              <div><strong>Table Number:</strong> ${tableNumber}</div>
-            </div>
-          `;
+                        <div class="summary-title">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M9 12v12M15 12v12M5 12l-2 9h18l-2-9M5 12V8c0-1.105.895-2 2-2h10c1.105 0 2 .895 2 2v4"/>
+                                <circle cx="12" cy="6" r="2"/>
+                            </svg>
+                            Restaurant Order
+                        </div>
+                        <div class="summary-details">
+                            <div><strong>Type:</strong> Dine-in</div>
+                            <div><strong>Table Number:</strong> ${tableNumber}</div>
+                        </div>
+                    `;
                 }
             } else {
                 const name = document.getElementById('customerName').value.trim();
                 const mobile = document.getElementById('customerMobile').value.trim();
                 const address = document.getElementById('customerAddress').value.trim();
-
                 if (name || mobile || address) {
                     showSummary = true;
                     summaryHTML = `
-            <div class="summary-title">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <path d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"/>
-              </svg>
-              Delivery Order
-            </div>
-            <div class="summary-details">
-              <div><strong>Type:</strong> Home Delivery</div>
-              ${name ? `<div><strong>Name:</strong> ${name}</div>` : ''}
-              ${mobile ? `<div><strong>Mobile:</strong> ${mobile}</div>` : ''}
-              ${address ? `<div><strong>Address:</strong> ${address}</div>` : ''}
-            </div>
-          `;
+                        <div class="summary-title">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"/>
+                            </svg>
+                            Delivery Order
+                        </div>
+                        <div class="summary-details">
+                            <div><strong>Type:</strong> Home Delivery</div>
+                            ${name ? `<div><strong>Name:</strong> ${name}</div>` : ''}
+                            ${mobile ? `<div><strong>Mobile:</strong> ${mobile}</div>` : ''}
+                            ${address ? `<div><strong>Address:</strong> ${address}</div>` : ''}
+                        </div>
+                    `;
                 }
             }
 
@@ -1776,7 +1569,6 @@ text-decoration:none;
             }
         }
 
-        // Toggle cart modal
         cartButton.addEventListener('click', () => {
             cartModal.classList.add('open');
             updateCustomerDetailsSummary();
@@ -1786,10 +1578,8 @@ text-decoration:none;
             cartModal.classList.remove('open');
         });
 
-        // Add to cart function with animation
         function addToCart(item, button) {
             const existingItem = cart.find(cartItem => cartItem.id === item.id);
-
             if (existingItem) {
                 existingItem.quantity += 1;
             } else {
@@ -1800,18 +1590,13 @@ text-decoration:none;
                     quantity: 1
                 });
             }
-
             updateCart();
-
-            // Animation effect
             button.classList.add('adding');
             button.innerHTML = 'Adding...';
-
             setTimeout(() => {
                 button.classList.remove('adding');
                 button.classList.add('added');
                 button.innerHTML = '✓ Added';
-
                 setTimeout(() => {
                     button.classList.remove('added');
                     button.innerHTML = 'Add to Cart';
@@ -1819,19 +1604,15 @@ text-decoration:none;
             }, 500);
         }
 
-        // Remove from cart function
         function removeFromCart(itemId) {
             cart = cart.filter(item => item.id !== itemId);
             updateCart();
         }
 
-        // Update quantity function
         function updateQuantity(itemId, change) {
             const item = cart.find(item => item.id === itemId);
-
             if (item) {
                 item.quantity += change;
-
                 if (item.quantity <= 0) {
                     removeFromCart(itemId);
                 } else {
@@ -1840,85 +1621,66 @@ text-decoration:none;
             }
         }
 
-        // Update cart display
         function updateCart() {
-            // Update cart count
             const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
             cartCount.textContent = totalItems;
 
-            // Update cart items
             if (cart.length === 0) {
                 cartEmpty.style.display = 'block';
                 cartItems.innerHTML = '';
                 cartTotal.textContent = '₹0';
             } else {
                 cartEmpty.style.display = 'none';
-
                 let itemsHTML = '';
                 let totalAmount = 0;
-
                 cart.forEach(item => {
                     const priceValue = extractPrice(item.price);
                     const itemTotal = priceValue * item.quantity;
                     totalAmount += itemTotal;
-
                     itemsHTML += `
-            <div class="cart-item">
-              <div class="item-info">
-                <div class="item-name">${item.name}</div>
-                <div class="item-price">${item.price}</div>
-              </div>
-              <div class="item-quantity">
-                <button class="quantity-btn" onclick="updateQuantity(${item.id}, -1)">-</button>
-                <span class="quantity">${item.quantity}</span>
-                <button class="quantity-btn" onclick="updateQuantity(${item.id}, 1)">+</button>
-                <button class="remove-item" onclick="removeFromCart(${item.id})">×</button>
-              </div>
-            </div>
-          `;
+                        <div class="cart-item">
+                            <div class="item-info">
+                                <div class="item-name">${item.name}</div>
+                                <div class="item-price">${item.price}</div>
+                            </div>
+                            <div class="item-quantity">
+                                <button class="quantity-btn" onclick="updateQuantity(${item.id}, -1)">-</button>
+                                <span class="quantity">${item.quantity}</span>
+                                <button class="quantity-btn" onclick="updateQuantity(${item.id}, 1)">+</button>
+                                <button class="remove-item" onclick="removeFromCart(${item.id})">×</button>
+                            </div>
+                        </div>
+                    `;
                 });
-
                 cartItems.innerHTML = itemsHTML;
                 cartTotal.textContent = `₹${totalAmount}`;
             }
         }
 
-        // Clear cart
         clearCart.addEventListener('click', () => {
             cart = [];
             updateCart();
         });
 
-        // Add another item button functionality
         addAnotherItem.addEventListener('click', () => {
             cartModal.classList.remove('open');
-            
-            // Scroll to top of menu
             window.scrollTo({
                 top: document.querySelector('.menu-head').offsetTop - 20,
                 behavior: 'smooth'
             });
-            
-            // Focus on search to help user find items
-            setTimeout(() => {
-                document.getElementById('search').focus();
-            }, 500);
         });
 
-        // WhatsApp order function with customer details
         whatsappOrder.addEventListener('click', () => {
             if (cart.length === 0) {
                 alert('Your cart is empty!');
                 return;
             }
 
-            // Validate details based on delivery type
             let validationPassed = true;
             let validationMessage = '';
 
             if (deliveryType === 'restaurant') {
                 const tableNumber = document.getElementById('tableNumber').value.trim();
-
                 if (!tableNumber) {
                     validationPassed = false;
                     validationMessage = 'Please enter your table number';
@@ -1927,7 +1689,6 @@ text-decoration:none;
                 const customerName = document.getElementById('customerName').value.trim();
                 const customerMobile = document.getElementById('customerMobile').value.trim();
                 const customerAddress = document.getElementById('customerAddress').value.trim();
-
                 if (!customerName || !customerMobile || !customerAddress) {
                     validationPassed = false;
                     validationMessage = 'Please fill in all delivery details (Name, Mobile, Address)';
@@ -1941,17 +1702,14 @@ text-decoration:none;
 
             let message = `Hello! I would like to place an order:\n\n`;
 
-            // Add delivery details
             if (deliveryType === 'restaurant') {
                 const tableNumber = document.getElementById('tableNumber').value.trim();
-
                 message += `**Delivery Type:** Dine-in\n`;
                 message += `**Table Number:** ${tableNumber}\n\n`;
             } else {
                 const customerName = document.getElementById('customerName').value.trim();
                 const customerMobile = document.getElementById('customerMobile').value.trim();
                 const customerAddress = document.getElementById('customerAddress').value.trim();
-
                 message += `**Delivery Type:** Home Delivery\n`;
                 message += `**Name:** ${customerName}\n`;
                 message += `**Mobile:** ${customerMobile}\n`;
@@ -1959,7 +1717,6 @@ text-decoration:none;
             }
 
             message += `**Order Details:**\n`;
-
             cart.forEach(item => {
                 message += `• ${item.name} - ${item.quantity} x ${item.price}\n`;
             });
@@ -1972,20 +1729,69 @@ text-decoration:none;
             message += `\n**Total Amount:** ₹${totalAmount}\n\n`;
             message += `Thank you!`;
 
-            // Encode the message for WhatsApp URL
             const encodedMessage = encodeURIComponent(message);
             const whatsappURL = `https://wa.me/917276238455?text=${encodedMessage}`;
-
-            // Open WhatsApp in a new tab
             window.open(whatsappURL, '_blank');
-
-            // Close cart modal after order
             setTimeout(() => {
                 cartModal.classList.remove('open');
             }, 1000);
         });
 
-        // Render menu items
+        // ===== Menu Switching Function =====
+        function switchMenu(type) {
+            currentMenuType = type;
+            
+            document.getElementById('foodMenuBtn').classList.toggle('active', type === 'food');
+            document.getElementById('barMenuBtn').classList.toggle('active', type === 'bar');
+
+            // Show/hide tabs
+            if (type === 'food') {
+                foodTabs.classList.remove('hidden');
+                barTabs.classList.remove('visible');
+                // Reset bar category
+                currentBarCategory = 'all';
+                // Render food with current category
+                filterByCategory(currentCategory);
+            } else {
+                foodTabs.classList.add('hidden');
+                barTabs.classList.add('visible');
+                // Render bar with current bar category
+                filterBarByCategory(currentBarCategory);
+            }
+        }
+
+        // ===== Food Category Filter =====
+        function filterByCategory(category) {
+            currentCategory = category;
+            
+            if (currentMenuType === 'bar') {
+                filterBarByCategory(currentBarCategory);
+                return;
+            }
+
+            if (category === 'all') {
+                const foodItems = data.filter(item => item.cat !== 'Liquor' && item.cat !== 'Beer');
+                renderMenuItems(foodItems);
+            } else {
+                const filteredItems = data.filter(item => item.cat === category);
+                renderMenuItems(filteredItems);
+            }
+        }
+
+        // ===== Bar Category Filter =====
+        function filterBarByCategory(category) {
+            currentBarCategory = category;
+            
+            let barItems;
+            if (category === 'all') {
+                barItems = data.filter(item => item.cat === 'Liquor' || item.cat === 'Beer');
+            } else {
+                barItems = data.filter(item => item.cat === category);
+            }
+            renderMenuItems(barItems);
+        }
+
+        // ===== Render Menu Items =====
         function renderMenuItems(items) {
             const menuGrid = document.getElementById('menuGrid');
 
@@ -1995,81 +1801,94 @@ text-decoration:none;
             }
 
             menuGrid.innerHTML = items.map(item => `
-        <div class="card" data-cat="${item.cat}">
-          <div class="card-header">
-            <div class="thumb">
-              <img src="${item.img}" alt="${item.name}" onerror="this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTgwIiBoZWlnaHQ9IjE4MCIgdmlld0JveD0iMCAwIDE4MCAxODAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHdpZHRoPSIxODAiIGhlaWdodD0iMTgwIiBmaWxsPSJyZ2JhKDI1NSwgMjU1LCAyNTUsIDAuMDMpIi8+CjxwYXRoIGQ9Ik03MCA4MEgxMTBNODAgNzBIOTBNNjUgOTVIMTA1TTk1IDY1VjEwNU02NSA2NVYxMDVNNzUgNzVIOThNNzUgODVIOThNNzUgOTVIOThNNzUgMTA1SDk4TTY1IDc1SDcyTTY1IDg1SDcyTTY1IDk1SDcyTTY1IDEwNUg3Mk0xMDggNzVIMTE1TTEwOCA4NUgxMTVNMTA4IDk1SDExNU0xMDggMTA1SDExNSIgc3Ryb2tlPSJyZ2JhKDI1NSwgMjU1LCAyNTUsIDAuMSkiIHN0cm9rZS13aWR0aD0iMS41IiBzdHJva2UtbGluZWNhcD0icm91bmQiLz4KPC9zdmc+'">
-            </div>
-            <div class="card-info">
-              <h3 class="dish">${item.name}</h3>
-              <p class="desc">${item.desc}</p>
-              <div class="tags">
-                ${item.tags.map(tag => `<span class="pill">${tag}</span>`).join('')}
-              </div>
-            </div>
-          </div>
-          <div class="card-footer">
-            <div class="price">${item.price}</div>
-            <button class="btn-primary" onclick='addToCart(${JSON.stringify(item).replace(/'/g, "\\'")}, this)'>Add to Cart</button>
-          </div>
-        </div>
-      `).join('');
+                <div class="card" data-cat="${item.cat}">
+                    <div class="card-header">
+                        <div class="thumb">
+                            <img src="${item.img}" alt="${item.name}" onerror="this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTgwIiBoZWlnaHQ9IjE4MCIgdmlld0JveD0iMCAwIDE4MCAxODAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHdpZHRoPSIxODAiIGhlaWdodD0iMTgwIiBmaWxsPSJyZ2JhKDI1NSwgMjU1LCAyNTUsIDAuMDMpIi8+CjxwYXRoIGQ9Ik03MCA4MEgxMTBNODAgNzBIOTBNNjUgOTVIMTA1TTk1IDY1VjEwNU02NSA2NVYxMDVNNzUgNzVIOThNNzUgODVIOThNNzUgOTVIOThNNzUgMTA1SDk4TTY1IDc1SDcyTTY1IDg1SDcyTTY1IDk1SDcyTTY1IDEwNUg3Mk0xMDggNzVIMTE1TTEwOCA4NUgxMTVNMTA4IDk1SDExNU0xMDggMTA1SDExNSIgc3Ryb2tlPSJyZ2JhKDI1NSwgMjU1LCAyNTUsIDAuMSkiIHN0cm9rZS13aWR0aD0iMS41IiBzdHJva2UtbGluZWNhcD0icm91bmQiLz4KPC9zdmc+'">
+                        </div>
+                        <div class="card-info">
+                            <h3 class="dish">${item.name}</h3>
+                            <p class="desc">${item.desc}</p>
+                            <div class="tags">
+                                ${item.tags.map(tag => `<span class="pill">${tag}</span>`).join('')}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <div class="price">${item.price}</div>
+                        <button class="btn-primary" onclick='addToCart(${JSON.stringify(item).replace(/'/g, "\\'")}, this)'>Add to Cart</button>
+                    </div>
+                </div>
+            `).join('');
         }
 
-        // Filter menu items by category
-        function filterByCategory(category) {
-            if (category === 'all') {
-                renderMenuItems(data);
-            } else {
-                const filteredItems = data.filter(item => item.cat === category);
-                renderMenuItems(filteredItems);
-            }
-        }
-
-        // Search functionality
+        // ===== Search =====
         function searchItems(query) {
-            const filteredItems = data.filter(item =>
-                item.name.toLowerCase().includes(query.toLowerCase()) ||
-                item.desc.toLowerCase().includes(query.toLowerCase()) ||
-                item.tags.some(tag => tag.toLowerCase().includes(query.toLowerCase()))
-            );
+            let filteredItems;
+            
+            if (currentMenuType === 'bar') {
+                const barItems = data.filter(item => item.cat === 'Liquor' || item.cat === 'Beer');
+                filteredItems = barItems.filter(item =>
+                    item.name.toLowerCase().includes(query.toLowerCase()) ||
+                    item.desc.toLowerCase().includes(query.toLowerCase()) ||
+                    item.tags.some(tag => tag.toLowerCase().includes(query.toLowerCase()))
+                );
+            } else {
+                const foodItems = data.filter(item => item.cat !== 'Liquor' && item.cat !== 'Beer');
+                filteredItems = foodItems.filter(item =>
+                    item.name.toLowerCase().includes(query.toLowerCase()) ||
+                    item.desc.toLowerCase().includes(query.toLowerCase()) ||
+                    item.tags.some(tag => tag.toLowerCase().includes(query.toLowerCase()))
+                );
+            }
             renderMenuItems(filteredItems);
         }
 
-        // Initialize the page
+        // ===== Initialize =====
         document.addEventListener('DOMContentLoaded', () => {
-            // Set default delivery option
             selectDeliveryOption('restaurant');
+            
+            // Default: Food menu active
+            switchMenu('food');
 
-            // Render menu items
-            renderMenuItems(data);
-
-            // Tab functionality
-            document.querySelectorAll('.tab').forEach(tab => {
+            // Food tab clicks
+            document.querySelectorAll('#foodTabs .tab').forEach(tab => {
                 tab.addEventListener('click', () => {
-                    document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+                    document.querySelectorAll('#foodTabs .tab').forEach(t => t.classList.remove('active'));
                     tab.classList.add('active');
                     filterByCategory(tab.dataset.cat);
                 });
             });
 
-            // Search functionality
+            // Bar tab clicks
+            document.querySelectorAll('#barTabs .tab').forEach(tab => {
+                tab.addEventListener('click', () => {
+                    document.querySelectorAll('#barTabs .tab').forEach(t => t.classList.remove('active'));
+                    tab.classList.add('active');
+                    filterBarByCategory(tab.dataset.barCat);
+                });
+            });
+
+            // Search
             document.getElementById('search').addEventListener('input', (e) => {
                 searchItems(e.target.value);
             });
 
-            // Update details summary when form inputs change
+            // Customer details
             document.getElementById('tableNumber').addEventListener('input', updateCustomerDetailsSummary);
             document.getElementById('customerName').addEventListener('input', updateCustomerDetailsSummary);
             document.getElementById('customerMobile').addEventListener('input', updateCustomerDetailsSummary);
             document.getElementById('customerAddress').addEventListener('input', updateCustomerDetailsSummary);
         });
 
-        // Make functions available globally
+        // Global functions
         window.addToCart = addToCart;
         window.removeFromCart = removeFromCart;
         window.updateQuantity = updateQuantity;
         window.selectDeliveryOption = selectDeliveryOption;
+        window.switchMenu = switchMenu;
+        window.filterByCategory = filterByCategory;
+        window.filterBarByCategory = filterBarByCategory;
     </script>
 </body>
 
